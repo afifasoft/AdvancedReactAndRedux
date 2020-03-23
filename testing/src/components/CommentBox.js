@@ -16,7 +16,7 @@ class CommentBox extends Component {
     this.setState({
       comment: ''
     });
-    
+
   };
 
   render() {
