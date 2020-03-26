@@ -5,9 +5,9 @@ import { createStore } from 'redux';
 import reducers from 'reducers';
 
 import App from 'components/App';
-// 38
+// 43
 ReactDOM.render(
-  // list of reducers and state 
+  // list of reducers and state
   <Provider store={createStore(reducers, {})}>
     <App />
   </Provider>,
