@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from 'actions';
 
+
 class CommentBox extends Component {
+
   state = { comment: '' };
 
   handleChange = (event) => {
@@ -10,6 +12,7 @@ class CommentBox extends Component {
   };
 
   handleSubmit = (event) => {
+
     event.preventDefault();
     // Call an action creator
     this.props.saveComment(this.state.comment);
