@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import Root from 'Root';
 
 import App from 'components/App';
-// 45
+// 48
 ReactDOM.render(
   // list of reducers and state
   <Root>
     <App />
-  </Root>
+  </Root>,
   document.querySelector('#root')
 
 );
