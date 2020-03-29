@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Root from 'Root';
 
 import App from 'components/App';
-// 48
+// 49
 ReactDOM.render(
   // list of reducers and state
   <Root>
