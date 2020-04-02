@@ -1,10 +1,22 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import moxios from 'moxios';
 import Root from 'Root';
 import App from 'components/App';
 
+beforeEach(() => {
+  moxios.install();
+  moxios.stubRequest('http://jsonplaceholder.typicode.com/comments',  {
+    status: 200,
+    response: [{ name: 'Fetched #1'}, { name: 'Fetched #2'}]
+  });
+});
 
-it('can fetch a list of comments and display them', () => {
+afterEach(() => {
+  moxios.uninstall();
+});
+
+it('can fetch a list of comments and display them', (done) => {
   // Attempt to render the entire App
   const wrapped = mount(
     <Root>
@@ -14,7 +26,15 @@ it('can fetch a list of comments and display them', () => {
   // find the 'fetchComments' button and click it
   wrapped.find('.fetch-comments').simulate('click')
 
-  // Expect to find a list of comments! 500 Li's
-  expect(wrapped.find('li').length).toEqual(500);
+  // introduce a TINY little pause
+
+  moxios.wait(() => {
+       wrapped.update();
+        // Expect to find a list of comments! 500 Li's
+        expect(wrapped.find('li').length).toEqual(2);
+        done();
+        wrapped.unmount();
+  });
+
 
 });
