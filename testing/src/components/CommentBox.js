@@ -9,12 +9,14 @@ class CommentBox extends Component {
 
 // Our component just got rendered
   componentDidMount() {
+  
     this.shouldNavigateAway();
   }
 
   // called when it receives new set of props
   // Our component just got updated
   componentDidUpdate() {
+
     this.shouldNavigateAway();
   }
 
@@ -24,7 +26,7 @@ class CommentBox extends Component {
 
   shouldNavigateAway() {
     if (!this.props.auth) {
-      console.log('I NEED TO LEAVE !!!');
+      this.props.history.push("/");
     }
   }
 
