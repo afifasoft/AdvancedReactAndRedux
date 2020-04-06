@@ -7,28 +7,11 @@ class CommentBox extends Component {
 
   state = { comment: '' };
 
-// Our component just got rendered
-  componentDidMount() {
-  
-    this.shouldNavigateAway();
-  }
 
-  // called when it receives new set of props
-  // Our component just got updated
-  componentDidUpdate() {
-
-    this.shouldNavigateAway();
-  }
 
   handleChange = (event) => {
     this.setState({ comment: event.target.value });
   };
-
-  shouldNavigateAway() {
-    if (!this.props.auth) {
-      this.props.history.push("/");
-    }
-  }
 
   handleSubmit = (event) => {
 
@@ -59,10 +42,6 @@ class CommentBox extends Component {
 
   }
 }
-function mapStateToProps(state) {
-  return {
-    auth: state.auth
-  };
-}
 
-export default connect(mapStateToProps, actions)(CommentBox);
+
+export default connect(null, actions)(CommentBox);
