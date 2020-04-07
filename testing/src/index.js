@@ -4,7 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Root from 'Root';
 
 import App from 'components/App';
-// 78
+// 81
 ReactDOM.render(
   // list of reducers and state
   <Root>
