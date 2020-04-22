@@ -7,6 +7,18 @@ import * as actions from '../../actions';
 
 class Signup extends Component {
 
+
+  renderInput = ({ input, label, meta, type }) => {
+    return (
+      <div>
+        <label>{label}</label>
+        <div>
+          <input {...input} type={type} autoComplete="off"/>
+        </div>
+      </div>
+    )
+  }
+
   onSubmit = (formProps) => {
     console.log(formProps);
     this.props.signup(formProps, () => {
@@ -20,25 +32,20 @@ class Signup extends Component {
     const { handleSubmit } = this.props;
     return (
       <form onSubmit={handleSubmit(this.onSubmit)}>
-
-        <fieldset>
-          <label>Email</label>
           <Field
             name="email"
             type="text"
-            component="input"
+            component={this.renderInput}
+            label="Email"
             autoComplete="none"
             />
-        </fieldset>
-        <fieldset>
-          <label>Password</label>
           <Field
             name="password"
             type="password"
-            component="input"
+            component={this.renderInput}
+            label="Password"
             autoComplete="none"
             />
-        </fieldset>
         <div>
           { this.props.errorMessage }
         </div>
