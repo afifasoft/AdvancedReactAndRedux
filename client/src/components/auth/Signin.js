@@ -9,7 +9,9 @@ class Signin extends Component {
 
   onSubmit = (formProps) => {
     console.log(formProps);
-    this.props.signin(formProps);
+    this.props.signin(formProps, () => {
+      this.props.history.push('/feature')
+    });
   }
 
   renderInput = ({ input, label, meta, type }) => {
@@ -19,6 +21,7 @@ class Signin extends Component {
         <div>
           <input {...input} type={type} autoComplete="off"/>
         </div>
+        
       </div>
     );
   }
